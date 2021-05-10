@@ -1,0 +1,1 @@
+web: gunicorn  news:app 0.0.0.0:$PORT

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    {% for result in result %}
+    <article class="media content-section">
+        <div class="media-body">
+        <div class="article-metadata">
+        <h2 class="article-title">{{ result['title'] }}</h2>
+        <small class="text-muted">{{ result['date'] }}</small>
+        <p class="article-content">{{ result['desc'] }}</p>
+        <a class="mr-2" href="{{ result['link']  }}">Read more</a>
+        </div>
+    </article>
+    {%endfor%}
+</div>
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Search another news? <a class="ml-2" href= "{{ url_for('home') }}">Search</a>
+    </small>
+</div>
+{% endblock content %}

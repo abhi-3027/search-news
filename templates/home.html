@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+      <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <h2 class="article-title">News Bulletin</h2>
+        </div>
+      </article>
+      <div class="content-section">
+        <form method="POST" action="/news">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Search News on Google</legend>
+                <div class="form-group">
+                    {{ form.period.label(class="form-control-label") }}
+
+                    {% if form.period.errors %}
+                        {{ form.period(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.period.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.period(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.keyword.label(class="form-control-label") }}
+                    {% if form.keyword.errors %}
+                        {{ form.keyword(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.keyword.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.keyword(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 
 class GoogleSearchForm(FlaskForm):
-    period = StringField('Period',
+    period = StringField('Period (e.g. 2d, 7d)',
                            validators=[DataRequired()])
     keyword = StringField('Keyword',
                         validators=[DataRequired()])

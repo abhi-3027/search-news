@@ -20,10 +20,10 @@ def home():
 
 @app.route("/news",methods=['GET', 'POST'])
 def news():
-    period  =  str(request.form['period'])
     keyword = str(request.form['keyword'])
-    googlenews = GoogleNews(period = period)
+    googlenews = GoogleNews(period = '7d')
     googlenews.search(keyword)
+    googlenews.get_page(5)
     result = googlenews.result()
     return render_template('news.html', result = result)
 
